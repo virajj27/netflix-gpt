@@ -2,6 +2,7 @@
 
 -create react app
 -configured tailwindcss
+-signIn form done
 
 # features
 
