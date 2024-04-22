@@ -38,6 +38,7 @@
 -secondaryContainer
 -fetch data for trailer video
 -update store with trailer video data
+-embedded youtube video made it autoplay and mute
 
 # features
 
