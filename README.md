@@ -19,7 +19,25 @@
 -created redux store with userSlice
 -implemented signOut API
 -update profile
--fetch from TMDB movies
+-bug fix:signUp user displayName , and profile picture update
+-bug fix: user not logged in still redirecting to /browse page
+-unsubscribed to onAuthStateChange callback
+-add harcoded values to constants file
+-registered for TMDB API & get access token
+-get data from TMDB now playing movies list API
+-created custom hooks for now playing movies
+-updated store with movies data(created a movie slice)
+-browse page planning
+
+- mainContainer
+
+  - header
+  - videoTitle
+  - videoBackground
+
+-secondaryContainer
+-fetch data for trailer video
+-update store with trailer video data
 
 # features
 

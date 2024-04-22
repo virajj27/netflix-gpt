@@ -7,13 +7,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_IMG, PROFILE_IMAGE } from "../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [isSignIn, setIsSignIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const name = useRef(null);
@@ -38,8 +37,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://media.licdn.com/dms/image/C4E03AQEEE_e9kU98Rg/profile-displayphoto-shrink_800_800/0/1664201603140?e=2147483647&v=beta&t=-anzvdkvWAMz3P-FYVcyMiTfGlounzF89DtwBpGgyms",
+            photoURL: PROFILE_IMAGE,
           })
             .then(() => {
               const { uid, displayName, email, photoURL } = auth.currentUser;
@@ -51,7 +49,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -62,7 +59,6 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
-          navigate("/");
         });
     } else {
       //signIn
@@ -82,13 +78,11 @@ const Login = () => {
               photoURL: photoURL,
             })
           );
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
-          navigate("/");
         });
     }
   };
@@ -96,10 +90,7 @@ const Login = () => {
     <div className="">
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/c0b69670-89a3-48ca-877f-45ba7a60c16f/2642e08e-4202-490e-8e93-aff04881ee8a/IN-en-20240212-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="bg-img"
-        />
+        <img src={BG_IMG} alt="bg-img" />
       </div>
       <form
         className="absolute p-14 bg-black w-4/12  my-36 mx-auto left-0 right-0 text-white rounded-md bg-opacity-80"
