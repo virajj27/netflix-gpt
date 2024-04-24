@@ -43,7 +43,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className=" absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className=" fixed w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between z-30">
       <img className="w-56" src={LOGO} alt="netflix-logo" />
       {user && (
         <div className="flex p-2">

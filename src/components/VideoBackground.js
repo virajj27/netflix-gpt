@@ -7,7 +7,7 @@ const VideoBackground = ({ movieId }) => {
   //custom hook to seperate fetch logic
   useGetMovieVideos(movieId);
   return (
-    <div className="absolute">
+    <div className="">
       <iframe
         className="w-screen aspect-video "
         src={

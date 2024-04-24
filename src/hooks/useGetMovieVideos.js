@@ -10,12 +10,11 @@ const useGetMovieVideos = (movieId) => {
       API_OPTIONS
     );
     const json = await data.json();
-    console.log(json);
     const filteredData = json.results.filter(
       (video) => video.type === "Trailer"
     );
     const trailer = filteredData.length ? filteredData[0] : json.results[0];
-    console.log(trailer); //to use it inside jsx you can either create a state variable
+    //to use it inside jsx you can either create a state variable
     //or push the trailer to the redux store and fetch from there
     dispatch(addTrailerVideo(trailer));
   };

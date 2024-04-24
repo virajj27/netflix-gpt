@@ -39,6 +39,13 @@
 -fetch data for trailer video
 -update store with trailer video data
 -embedded youtube video made it autoplay and mute
+-movieList(popular)
+-movieCards\*n
+-movieList(action)
+-movieList(romance)..
+
+-secondaryContainer with movieList and usePopularMovies done
+-found out Image CDN from TMDB api and used it for movie posters in movie list
 
 # features
 
