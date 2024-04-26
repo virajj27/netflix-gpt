@@ -4,18 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO } from "../utils/constants";
-
+import { LOGO, language } from "../utils/constants";
+import { setGptSearch } from "../utils/gptSlice";
+import { setLanguage } from "../utils/configSlice";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
+  };
+
+  const handleLanguage = (e) => {
+    dispatch(setLanguage(e.target.value));
   };
   //so basically instead of dispatching action to add or remove user from the store
   //multiple times for signIn ,signOut,signUp
@@ -42,11 +48,35 @@ const Header = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  const handleGptSearch = () => {
+    dispatch(setGptSearch());
+  };
   return (
-    <div className=" fixed w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between z-30">
+    <div className=" fixed w-screen px-8 py-2 bg-gradient-to-b from-black  flex justify-between z-30">
       <img className="w-56" src={LOGO} alt="netflix-logo" />
+
       {user && (
         <div className="flex p-2">
+          {showGptSearch && (
+            <select
+              className="m-4 bg-black text-white  text-lg"
+              onChange={handleLanguage}
+            >
+              {language.map((lang) => (
+                <option value={lang.identifier} key={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className="bg-purple-800 text-white px-7  py-2 mx-5 my-5 rounded-lg hover:bg-opacity-80"
+            onClick={handleGptSearch}
+          >
+            {showGptSearch ? "Home page" : "Search"}
+          </button>
+
           <img
             className="w-10 h-10 my-7 m-4 "
             src={user.photoURL}

@@ -4,7 +4,7 @@ import MovieList from "./MovieList";
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
-  console.log(movies.popularMovies);
+
   return (
     <div className="bg-black ">
       <div className="-mt-52 pl-12 relative z-10 w-screen aspect-video">

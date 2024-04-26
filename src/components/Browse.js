@@ -4,7 +4,11 @@ import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMovies";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 const Browse = () => {
+  const gpt = useSelector((store) => store.gpt);
+
   //fetch data from TMDB API and update our store
   useNowPlayingMovies();
 
@@ -12,8 +16,14 @@ const Browse = () => {
   return (
     <div className="relative">
       <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      {gpt.showGptSearch ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
 
       {/* main container
     hero section big video playing automatically(recommended movie)

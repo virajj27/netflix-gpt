@@ -47,6 +47,8 @@
 
 - secondaryContainer with movieList and usePopularMovies done
 - found out Image CDN from TMDB api and used it for movie posters in movie list
+- GPT search feature
+- language functionlity added (english,hindi,marathi)
 
 # features
 
