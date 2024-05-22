@@ -53,11 +53,11 @@ const Header = () => {
     dispatch(setGptSearch());
   };
   return (
-    <div className=" fixed w-screen px-8 py-2 bg-gradient-to-b from-black  flex justify-between z-30">
-      <img className="w-56" src={LOGO} alt="netflix-logo" />
+    <div className="absolute md:fixed w-screen px-8 py-2 bg-gradient-to-b from-black  flex flex-col md:flex-row justify-between z-30">
+      <img className="w-56 mx-auto md:mx-0" src={LOGO} alt="netflix-logo" />
 
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 justify-between">
           {showGptSearch && (
             <select
               className="m-4 bg-black text-white  text-lg"
@@ -71,14 +71,14 @@ const Header = () => {
             </select>
           )}
           <button
-            className="bg-purple-800 text-white px-7  py-2 mx-5 my-5 rounded-lg hover:bg-opacity-80"
+            className="bg-purple-800 text-white px-7  py-2  my-5 rounded-lg hover:bg-opacity-80"
             onClick={handleGptSearch}
           >
             {showGptSearch ? "Home page" : "Search"}
           </button>
 
           <img
-            className="w-10 h-10 my-7 m-4 "
+            className="hidden md:block w-10 h-10 my-7 m-4 "
             src={user.photoURL}
             alt=" profile-img"
           />

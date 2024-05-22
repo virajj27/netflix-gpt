@@ -49,6 +49,14 @@
 - found out Image CDN from TMDB api and used it for movie posters in movie list
 - GPT search feature
 - language functionlity added (english,hindi,marathi)
+- get openAI API key
+- GPT search API call
+- fetch gpt movie suggestions from TMDB
+- gpt slice and added data to store
+- reused movieList component to make movie Suggestion container
+- memoization(no repeated API calls if data already exists)
+- added .env file and add to gitignore
+- responsive site
 
 # features
 

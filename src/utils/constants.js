@@ -10,8 +10,7 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTJlNGEwYTFmMDNkOGY5ODUzZjdiMjllZjg1ZDBjNCIsInN1YiI6IjY2MjM1NDA0Y2I1YzhlMDE4NzNlZmVmZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Uwb9DZVRLXANDuiB7rYoCkNIOAAs8OZHlRm2DjT8dvQ",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 export const MOVIE_POSTER_URL = "https://image.tmdb.org/t/p/w500";
@@ -21,3 +20,5 @@ export const language = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "marathi", name: "Marathi" },
 ];
+
+export const GPT_API_KEY = process.env.REACT_APP_GPT_KEY;
